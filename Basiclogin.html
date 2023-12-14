@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login básico</title>
+	<style>	#botonVolver {
+		text-align: center;
+		margin-top: 10px; /* Ajusta la cantidad de margen superior según sea necesario */
+	}
+</style>
+	<script type="text/javascript">
+		function validar() {
+			var usuario = document.getElementById("usuario").value;
+			var contraseña = document.getElementById("pass").value;	
+
+			if (usuario === "edgard" && contraseña === "1234") {
+				
+				window.location.href = "administrador.html";
+			} else {
+				alert("Verifica tus credenciales");
+			}
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<table>
+			<tr>
+				<td><label>Usuario: </label></td> <td><input type="text" name="usuario" id="usuario"></td>
+			</tr>
+			<tr>
+				<td><label>Contraseña: </label></td> <td><input type="password" name="pass" id="pass"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" name="btnVerificacion" id="btnVerifica" onclick="validar()" value="Verificar" style="width: 100%"></td>
+			</tr>
+		</table>
+		<div id="botonVolver"><button><a href="index.html">VOLVER</a></button></div>
+	</center>
+</body>
+</html>
+
