@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reservas de Odontólogos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="total">
+        <div class="container">
+            <h1>Sistema de Reservas de Odontólogos</h1>
+                <form id="reservationForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required>
+            
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" required>
+            
+            <label for="time">Hora:</label>
+            <input type="time" id="time" required>
+            
+            <button type="submit">Reservar</button>
+            </form>
+        
+            <h2>Reservas:</h2>
+            <ul id="reservationsList"></ul>
+        </div>
+        <div id="botonVolver2">
+            <button><a href="index.html">VOLVER</a></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
