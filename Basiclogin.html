@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Login básico</title>
-	<style>	#botonVolver {
-		text-align: center;
-		margin-top: 10px; /* Ajusta la cantidad de margen superior según sea necesario */
-	}
-</style>
-	<script type="text/javascript">
-		function validar() {
-			var usuario = document.getElementById("usuario").value;
-			var contraseña = document.getElementById("pass").value;	
+    <meta charset="utf-8">
+    <title>Login básico</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #botonVolver {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #botonVolver a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        function validar() {
+            var usuario = document.getElementById("usuario").value;
+            var contraseña = document.getElementById("pass").value;
 
-			if ((usuario === "Rofaba" && contraseña === "12345") ||
-				(usuario === "Facu" && contraseña === "67890")  ) {
-				
-				window.location.href = "administrador.html";
-			} else {
-				alert("Verifica tus credenciales");
-			}
-		}
-	</script>
+            if ((usuario === "Rofaba" && contraseña === "12345") ||
+                (usuario === "Facu" && contraseña === "67890")) {
+                window.location.href = "administrador.html";
+            } else {
+                alert("Verifica tus credenciales");
+            }
+        }
+    </script>
 </head>
 <body>
-	<center>
-		<table>
-			<tr>
-				<td><label>Usuario: </label></td> <td><input type="text" name="usuario" id="usuario"></td>
-			</tr>
-			<tr>
-				<td><label>Contraseña: </label></td> <td><input type="password" name="pass" id="pass"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="button" name="btnVerificacion" id="btnVerifica" onclick="validar()" value="Verificar" style="width: 100%"></td>
-			</tr>
-		</table>
-		<div id="botonVolver"><button><a href="index.html">VOLVER</a></button></div>
-	</center>
+    <div class="container">
+        <h1 class="mt-5">Login básico</h1>
+        <form class="mt-4">
+            <div class="mb-3 row">
+                <label for="usuario" class="col-sm-2 col-form-label">Usuario:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="usuario" name="usuario">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="pass" class="col-sm-2 col-form-label">Contraseña:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pass" name="pass">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-primary" onclick="validar()" style="width: 100%;">Verificar</button>
+                </div>
+            </div>
+        </form>
+        <div id="botonVolver">
+            <a href="index.html"><button type="button" class="btn btn-secondary">Volver</button></a>
+        </div>
+    </div>
+    <!-- Bootstrap JS (opcional, si necesitas JavaScript de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+
 
