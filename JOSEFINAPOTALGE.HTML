@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona 2 - Datos Personales Editables</title>
+<style>
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  td[contenteditable="true"] {
+    background-color: #f2f2f2; /* Color de fondo para resaltar que es editable */
+  }
+</style>
+</head>
+<body>
+
+<h2>Persona 2</h2>
+
+<table id="datosPersonales2">
+  <tr>
+    <th>Nombre</th>
+    <td contenteditable="true" id="nombre2">María</td>
+  </tr>
+  <tr>
+    <th>Apellido</th>
+    <td contenteditable="true" id="apellido2">García</td>
+  </tr>
+  <tr>
+    <th>Fecha de Nacimiento</th>
+    <td contenteditable="true" id="fechaNacimiento2">20/11/1985</td>
+  </tr>
+</table>
+
+<script>
+  // Funciones para guardar y cargar datos de Persona 2
+  const guardarDatosPersona2 = () => {
+    localStorage.setItem('nombre2', document.getElementById('nombre2').innerText);
+    localStorage.setItem('apellido2', document.getElementById('apellido2').innerText);
+    localStorage.setItem('fechaNacimiento2', document.getElementById('fechaNacimiento2').innerText);
+  };
+
+  const cargarDatosGuardadosPersona2 = () => {
+    document.getElementById('nombre2').innerText = localStorage.getItem('nombre2') || 'María';
+    document.getElementById('apellido2').innerText = localStorage.getItem('apellido2') || 'García';
+    document.getElementById('fechaNacimiento2').innerText = localStorage.getItem('fechaNacimiento2') || '20/11/1985';
+  };
+
+  cargarDatosGuardadosPersona2(); // Cargar datos de Persona 2 al cargar la página
+
+  // Event listeners para guardar automáticamente los cambios en Persona 2
+  document.getElementById('nombre2').addEventListener('input', guardarDatosPersona2);
+  document.getElementById('apellido2').addEventListener('input', guardarDatosPersona2);
+  document.getElementById('fechaNacimiento2').addEventListener('input', guardarDatosPersona2);
+</script>
+<div id="botonVolver"><button><a href="ODONTOLOGOS.HTML">VOLVER</a></button></div>
+</body>
+</html>
+

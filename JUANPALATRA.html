@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Datos Personales Editables con localStorage</title>
+<title>Persona 1 - Datos Personales Editables</title>
 <style>
   table {
     width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   th, td {
     border: 1px solid black;
@@ -22,50 +23,43 @@
 </head>
 <body>
 
-<h2>Datos Personales Editables con localStorage</h2>
+<h2>Persona 1</h2>
 
-<table id="datosPersonales">
+<table id="datosPersonales1">
   <tr>
     <th>Nombre</th>
-    <td contenteditable="true" id="nombre">Juan</td>
+    <td contenteditable="true" id="nombre1">Juan</td>
   </tr>
   <tr>
     <th>Apellido</th>
-    <td contenteditable="true" id="apellido">Pérez</td>
+    <td contenteditable="true" id="apellido1">Pérez</td>
   </tr>
   <tr>
     <th>Fecha de Nacimiento</th>
-    <td contenteditable="true" id="fechaNacimiento">15/05/1990</td>
+    <td contenteditable="true" id="fechaNacimiento1">15/05/1990</td>
   </tr>
 </table>
 
 <script>
-  // Obtener referencias a los elementos editables
-  const nombreElement = document.getElementById('nombre');
-  const apellidoElement = document.getElementById('apellido');
-  const fechaNacimientoElement = document.getElementById('fechaNacimiento');
+  // Funciones para guardar y cargar datos de Persona 1
+  const guardarDatosPersona1 = () => {
+    localStorage.setItem('nombre1', document.getElementById('nombre1').innerText);
+    localStorage.setItem('apellido1', document.getElementById('apellido1').innerText);
+    localStorage.setItem('fechaNacimiento1', document.getElementById('fechaNacimiento1').innerText);
+  };
 
-  // Función para guardar los datos en localStorage cuando se editan
-  function guardarDatos() {
-    localStorage.setItem('nombre', nombreElement.innerText);
-    localStorage.setItem('apellido', apellidoElement.innerText);
-    localStorage.setItem('fechaNacimiento', fechaNacimientoElement.innerText);
-  }
+  const cargarDatosGuardadosPersona1 = () => {
+    document.getElementById('nombre1').innerText = localStorage.getItem('nombre1') || 'Juan';
+    document.getElementById('apellido1').innerText = localStorage.getItem('apellido1') || 'Pérez';
+    document.getElementById('fechaNacimiento1').innerText = localStorage.getItem('fechaNacimiento1') || '15/05/1990';
+  };
 
-  // Cargar datos guardados en localStorage al cargar la página
-  function cargarDatosGuardados() {
-    nombreElement.innerText = localStorage.getItem('nombre') || nombreElement.innerText;
-    apellidoElement.innerText = localStorage.getItem('apellido') || apellidoElement.innerText;
-    fechaNacimientoElement.innerText = localStorage.getItem('fechaNacimiento') || fechaNacimientoElement.innerText;
-  }
+  cargarDatosGuardadosPersona1(); // Cargar datos de Persona 1 al cargar la página
 
-  // Llamar a la función para cargar datos guardados al cargar la página
-  cargarDatosGuardados();
-
-  // Escuchar cambios en los campos editables y guardar automáticamente
-  nombreElement.addEventListener('input', guardarDatos);
-  apellidoElement.addEventListener('input', guardarDatos);
-  fechaNacimientoElement.addEventListener('input', guardarDatos);
+  // Event listeners para guardar automáticamente los cambios en Persona 1
+  document.getElementById('nombre1').addEventListener('input', guardarDatosPersona1);
+  document.getElementById('apellido1').addEventListener('input', guardarDatosPersona1);
+  document.getElementById('fechaNacimiento1').addEventListener('input', guardarDatosPersona1);
 </script>
 <div id="botonVolver"><button><a href="ODONTOLOGOS.HTML">VOLVER</a></button></div>
 </body>
